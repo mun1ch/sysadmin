@@ -70,11 +70,26 @@ if not(has_error) or manufacturer=='ShittyMicro':
                 for line in mcelog_out.splitlines():
                      print line
                 if manufacturer=='Cisco':
-                        print "\nIn case mcelog didn't map DIMMS for you, I'll show you"
-                        for line in dmi_memory_out.splitlines():
-                                if 'Locator' in line:
-                                        print line
-"""                                        
+                        print "\nIn case mcelog didn't map DIMMS for you, I'll show you:"
+                        print """
+                                A1 :: SOCKET 0 CHANNEL 0 DIMM 0
+                                A2 :: SOCKET 0 CHANNEL 0 DIMM 1
+                                B1 :: SOCKET 0 CHANNEL 1 DIMM 0
+                                B2 :: SOCKET 0 CHANNEL 1 DIMM 1
+                                C1 :: SOCKET 0 CHANNEL 2 DIMM 0
+                                C2 :: SOCKET 0 CHANNEL 2 DIMM 1
+                                D1 :: SOCKET 0 CHANNEL 3 DIMM 0
+                                D2 :: SOCKET 0 CHANNEL 3 DIMM 1
+                                E1 :: SOCKET 1 CHANNEL 0 DIMM 0
+                                E2 :: SOCKET 1 CHANNEL 0 DIMM 1
+                                F1 :: SOCKET 1 CHANNEL 1 DIMM 0
+                                F2 :: SOCKET 1 CHANNEL 1 DIMM 1
+                                G1 :: SOCKET 1 CHANNEL 2 DIMM 0
+                                G2 :: SOCKET 1 CHANNEL 2 DIMM 1
+                                H1 :: SOCKET 1 CHANNEL 3 DIMM 0
+                                H2 :: SOCKET 1 CHANNEL 3 DIMM 1"""
+
+"""
                                 if 'Clock Speed' in line and 'Unknown' not in line:
                                         print '^^^ DIMM INSTALLED ^^^'
 
