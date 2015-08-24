@@ -50,7 +50,7 @@ for line in dmi_system_out.splitlines():
         if 'SUN' in line:
                 manufacturer = 'SUN'
         if 'Supermicro' in line:
-                manufacturer = 'ShittyMicro'
+                manufacturer = 'SuperMicro'
 
 print "\nDo any of my DIMMs have errors? If so, plese fix me I'm dying!"
 
@@ -62,7 +62,7 @@ if manufacturer=='Cisco':
                 if 'error' in line and ' 0 ' not in line:
                         has_error = True
 
-if not(has_error) or manufacturer=='ShittyMicro':
+if not(has_error) or manufacturer=='SuperMicro':
         print "\nLooks like IPMITOOL isnt't revealing errors, lets try mcelog:"
         if not mcelog_out:
                 print "\t Mcelog is empty. are you sure there is a dimm error?"
@@ -93,7 +93,7 @@ if not(has_error) or manufacturer=='ShittyMicro':
                                 if 'Clock Speed' in line and 'Unknown' not in line:
                                         print '^^^ DIMM INSTALLED ^^^'
 
-if manufacturer=='ShittyMicro':
+if manufacturer=='SuperMicro':
         print "\nThis box is made by %s , ipmitool won't help, decipher mcelog for errors:" % manufacturer
         for line in mcelog_out.splitlines():
                         print line
